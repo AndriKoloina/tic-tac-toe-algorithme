@@ -10,7 +10,7 @@ class Environnement :
                 0b01010100      
             ]
 
-    def __init__(self):
+    def reset(self):
         self.player_x = 0
         self.player_o = 0 
 
@@ -30,7 +30,7 @@ class Environnement :
         return False
 
     def match_null(self):
-        mouvements = self.mouvement_valide(self.player_x, self.player_o)
+        mouvements = self.mouvement_valide()
 
         if len(mouvements) == 0 and not self.verification_victoire(self.player_o) and not self.verification_victoire(self.player_x):
             return True

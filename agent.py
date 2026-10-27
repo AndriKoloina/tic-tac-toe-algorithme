@@ -15,7 +15,7 @@ class Agent:
 
     def encodage_etat(self, env):
         encodage = (env.player_x, env.player_o)
-        
+
         return encodage
 
 
@@ -46,7 +46,7 @@ class Agent:
 
             meilleurs_coups = [action for action, q in q_values.items() if q == max_q]
 
-            return random.random(meilleurs_coups)
+            return random.choice(meilleurs_coups)
 
 
     def mise_a_jour_par_equation_Bellman(self, etat_s, action, recompense_r, etat_suivant, liste_actions_suivantes):
