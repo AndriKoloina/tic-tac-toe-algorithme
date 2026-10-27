@@ -1,4 +1,5 @@
 from environment import *
+import random
 
 class Agent:
 
@@ -28,6 +29,23 @@ class Agent:
 
         return self.q_table[etat]
             
+
+
+    def choix_action(self, etat, liste_actions_valides):
+        q_values = self.get_gestion_Q_valeurs(etat, liste_actions_valides)
+
+        choix_mode= random.random()
+
+        if choix_mode < self.epsilon:
+            pioche_coup = random.choice(liste_actions_valides)
+
+            return pioche_coup
+        else:
+            max_q = max(q_values.values())
+
+            meilleurs_coups = [action for action, q in q_values.items() if q == max_q]
+
+            return random.random(meilleurs_coups)
 
 
 
