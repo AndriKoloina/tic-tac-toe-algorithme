@@ -55,11 +55,10 @@ class Train:
 
 import pickle
 
-# 1. Charger le fichier pickle binaire
+
 with open("q_tables.pkl", "rb") as fichier:
     q_table = pickle.load(fichier)
 
-# 2. Écrire le contenu dans un fichier texte lisible
 with open("q_table_export.txt", "w", encoding="utf-8") as f_txt:
     for etat, actions in q_table.items():
         f_txt.write(f"État (Bitboards X, O) : {etat}\n")
